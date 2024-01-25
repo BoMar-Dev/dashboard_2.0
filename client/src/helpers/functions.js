@@ -12,6 +12,9 @@ export const clickOnSpecificDate = (clickedDate) => {
 
 
 
+
+
+
 //Get week
 export const whatWeekIsIt = () =>{
 
