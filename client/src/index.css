@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+  background: linear-gradient(360deg, rgba(137, 173, 120, 0.25) 0%, rgba(125, 186, 119, 0.25) 35%, rgba(100, 167, 234, 0.25) 100%);
+}
+
+
+/* Use the correct path to your photo */
+.bg-photo {
+  background-image: url("././assets/photo.png");
+  background-size: cover; /* Adjust this property as needed */
+  background-position: center;
+  /* Other necessary photo background styles */
+}
+
+
+
+
+

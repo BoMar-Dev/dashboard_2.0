@@ -1,0 +1,112 @@
+import { addDays, format, startOfWeek, getWeek, addWeeks } from "date-fns";
+import {
+  translateMonthToSwedish,
+  translateWeekdayToSwedish,
+} from "./translate";
+import isHoliday from "holidays-nordic";
+
+// Click on a date and get it logged in the console
+export const clickOnSpecificDate = (clickedDate) => {
+  console.log("Clicked date:", clickedDate);
+};
+
+
+
+//Get week
+export const whatWeekIsIt = () =>{
+
+  const weeknumber = getWeek(new Date(), {
+   weekStartsOn: 1,
+    firstWeekContainsDate: 4
+  })
+ 
+  return weeknumber
+}
+
+// Generat dynamic(real) dates in the 5 day column calendar
+export const generateDates = (currentDate) => {
+  const firstDayOfWorkWeek = startOfWeek(currentDate, { weekStartsOn: 1 });
+  const daysDate = [];
+
+  for (let i = 0; i < 5; i++) {
+    const date = addDays(firstDayOfWorkWeek, i);
+    const formattedDate = format(date, "d MMM");
+    const formattedDateTranslated = translateMonthToSwedish(formattedDate);
+    const weekday = format(date, "EEEE");
+    const weekdayTranslated = translateWeekdayToSwedish(weekday);
+
+    const isHolidayToday = isHoliday(date, "se");
+    daysDate.push({
+      date: formattedDateTranslated,
+      weekdayTranslated,
+      isHolidayToday,
+    });
+  }
+
+  return daysDate;
+  
+};
+
+
+export const addTodo = (e, todo, todos, setTodo, setTodos, MAX_TODOS) => {
+  e.preventDefault();
+  if (todo !== "") {
+    if (todos.length < MAX_TODOS) {
+      setTodos([...todos, todo]);
+      setTodo("");
+      console.log("Todo added:", todo);
+    } else {
+      console.log("Maximum 10 todos reached. Cannot add more.");
+    }
+  }
+};
+
+
+// saving whats put inside the input field
+export const handleChange = (e, setTodo ) => {
+  setTodo(e.target.value);
+  e.preventDefault();
+  console.log(e.target.value);
+};
+
+
+
+// Reset to weekly challange widget 
+export const reset = (setCount) => {
+  setCount({
+    pushups: 0,
+    squat: 0,
+    situps: 0,
+    lounges: 0,
+    sitInSofa: 0,
+  });
+  // Assuming you also want to reset the challenge status
+};
+ 
+
+// Increment to weekly challange widget
+export const plus = (workout, count, setCount) => {
+  if (count[workout] < 100) {
+    setCount((prevCount) => ({
+      ...prevCount,
+      [workout]: prevCount[workout] + 1,
+    }));
+  } else if (count[workout] === 100) {
+  
+  }
+  console.log(`${workout} Increment button is clicked`);
+};
+
+// Decrement to weekly challange widget 
+ export const minus = (workout, count, setCount) => {
+  if (count[workout] > 0) {
+    setCount((prevCount) => ({
+      ...prevCount,
+      [workout]: prevCount[workout] - 1,
+    }));
+  } else if (count[workout] < 100) {
+   
+  }
+  console.log(`${workout} Decrement button is clicked`);
+};
+//-------------------------------------------------------------
