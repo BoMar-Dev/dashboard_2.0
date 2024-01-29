@@ -13,11 +13,37 @@ import { generateHourlyStructure } from "../helpers/WorkHours";
 export default function Calendar() {
   const [currentDate] = useState(new Date());
   const [bookEventForm, setBookEventForm] = useState(false);
+  const [timeFrom, setTimeFrom] = useState("");
+  const [timeTo, setTimeTo] = useState("");
+  const [eventDay, setEventDay] = useState("");
   const daysDate = generateDates(currentDate);
 
   const bookEvent = () => {
     console.log("Button for book event is clicked ");
     setBookEventForm(true);
+  };
+
+  const handleEventDayChange = (e) => {
+    setEventDay(e.target.value);
+  };
+
+  const handleEventTimeFrom = (e) => {
+    setTimeFrom(e.target.value);
+  };
+
+  const handleEventTimeTo = (e) => {
+    setTimeTo(e.target.value);
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form submitted with values:", {
+      eventDay,
+      timeFrom,
+      timeTo,
+    });
+    // You can handle state updates or other logic here
+    setBookEventForm(false); // Close the form after submission
   };
 
   return (
@@ -47,28 +73,41 @@ export default function Calendar() {
 
                 {bookEventForm && (
                   <div className="bg-black w-[400px] h-[300px] flex justify-center rounded-md  ">
-                    <form className="flex flex-col w-[50%] gap-3">
+                    <form
+                      className="flex flex-col w-[50%] gap-3"
+                      onSubmit={handleFormSubmit}
+                    >
                       <label className=" ">Event</label>
-                      <select className="">
-                        <option selected>Dag</option>
+                      <select
+                        className=""
+                        onChange={handleEventDayChange}
+                        defaultValue=""
+                        required
+                      >
+                        <option value="" disabled hidden>
+                          Dag
+                        </option>
                         <option value="1">Måndag</option>
                         <option value="2">Tisdag</option>
                         <option value="3">Onsdag</option>
                         <option value="4">Torsdag</option>
                         <option value="5">Fredag</option>
                       </select>
+
                       <div className="flex">
                         <input
+                          onChange={handleEventTimeTo}
                           className="w-[100px]"
-                          placeholder="Tid från"
+                          placeholder="Tid till"
                           type="text"
                           pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"
                           title="Enter a valid 24-hour time (HH:mm)"
                           required
                         ></input>
                         <input
+                          onChange={handleEventTimeFrom}
                           className="w-[100px]"
-                          placeholder="Tid till"
+                          placeholder="Tid från"
                           type="text"
                           pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"
                           title="Enter a valid 24-hour time (HH:mm)"
