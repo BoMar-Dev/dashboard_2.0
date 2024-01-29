@@ -9,11 +9,12 @@ import MeetingCcv from "../components/MeetingCcv";
 import Calendar from "../components/Calendar";
 import WeekNumHeaderText from "../components/WeekNumHeaderText";
 import ResponsabilityBar from "../components/ResponsabilityBar";
+import MonthlyEvents from "../components/MonthlyEvents";
 // Component Widgets
 import TodoWidget from "../components/widget/shoppingList/TodoWidget";
-import WidgetTwo from "../components/widget/responsabilitys/WidgetTwo";
+import Responsabilitys from "../components/widget/responsabilitys/Responsabilitys";
 import ChallangeCounter from "../components/widget/weeklyChallange/ChallangeCounter";
-import WidgetFour from "../components/widget/birthDay/WidgetFour";
+import Birthday from "../components/widget/birthday/Birthday";
 
 export default function GdcAre() {
   return (
@@ -47,7 +48,7 @@ export default function GdcAre() {
           </div>
 
           <div className="relative">
-            <WidgetTwo />
+            <Responsabilitys />
             <div className=" absolute w-[50px] h-[50px] p-[9.72px] bg-orange-400 rounded-[36.46px] -left-[-50px] -top-4 ">
               <img className="w-7 h-7 relative" src={crown} />
             </div>
@@ -60,12 +61,14 @@ export default function GdcAre() {
             </div>
           </div>
 
-          <WidgetFour />
+          <Birthday />
         </div>
       </div>
 
       {/* Monthly happenings column  */}
-      <div className="w-[382px] h-[640px] bg-neutral-50 rounded-[20px]"></div>
+      <div className="w-[382px] h-[640px] bg-neutral-50 rounded-[20px]">
+        <MonthlyEvents />
+      </div>
     </div>
   );
 }

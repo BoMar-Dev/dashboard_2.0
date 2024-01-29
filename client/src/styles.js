@@ -35,10 +35,12 @@ const styles = {
     // Regular style, most common
     regularTextStyle: " text-neutral-700 text-sm font-normal font-['Source Sans Pro'] leading-[21px] tracking-wide",
 
-    regularHeaderText: "text-[22px] font-semibold font-['Source Sans Pro']"
-  
+    regularHeaderText: "text-[22px] font-semibold font-['Source Sans Pro']",
 
+    
+      eventBox: 'bg-yellow-300 p-2 text-black text-sm overflow-hidden', // Adjust colors and sizes as needed
 
+   
   };
   
   export { styles };

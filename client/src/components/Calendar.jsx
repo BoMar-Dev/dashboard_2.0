@@ -16,11 +16,12 @@ export default function Calendar() {
   const [timeFrom, setTimeFrom] = useState("");
   const [timeTo, setTimeTo] = useState("");
   const [eventDay, setEventDay] = useState("");
+  const [eventTitle, setEventTitle] = useState("");
   const daysDate = generateDates(currentDate);
 
   const bookEvent = () => {
     console.log("Button for book event is clicked ");
-    setBookEventForm(true);
+    setBookEventForm((prevBookEventForm) => !prevBookEventForm);
   };
 
   const handleEventDayChange = (e) => {
@@ -35,15 +36,20 @@ export default function Calendar() {
     setTimeTo(e.target.value);
   };
 
+  const handleEventname = (e) => {
+    setEventTitle(e.target.value);
+  };
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted with values:", {
+      eventTitle,
       eventDay,
       timeFrom,
       timeTo,
     });
-    // You can handle state updates or other logic here
-    setBookEventForm(false); // Close the form after submission
+
+    setBookEventForm(false);
   };
 
   return (
@@ -72,50 +78,75 @@ export default function Calendar() {
                 />
 
                 {bookEventForm && (
-                  <div className="bg-black w-[400px] h-[300px] flex justify-center rounded-md  ">
+                  <div className="bg-customPurple w-[300px] h-[200px] flex justify-center rounded-md  ">
                     <form
                       className="flex flex-col w-[50%] gap-3"
                       onSubmit={handleFormSubmit}
                     >
-                      <label className=" ">Event</label>
+                      <label
+                        className={`${styles.regularHeaderText} text-center mt-5`}
+                      >
+                        BOKA NÅGOT
+                      </label>
                       <select
-                        className=""
+                        className={`${styles.regularTextStyle}`}
                         onChange={handleEventDayChange}
                         defaultValue=""
                         required
                       >
-                        <option value="" disabled hidden>
-                          Dag
+                        <option
+                          className={`${styles.regularTextStyle} text-left`}
+                          value=""
+                          disabled
+                          hidden
+                        ></option>
+                        <option className="text-left" value="Måndag">
+                          Måndag
                         </option>
-                        <option value="1">Måndag</option>
-                        <option value="2">Tisdag</option>
-                        <option value="3">Onsdag</option>
-                        <option value="4">Torsdag</option>
-                        <option value="5">Fredag</option>
+                        <option className="text-left" value="Tisdag">
+                          Tisdag
+                        </option>
+                        <option className="text-left" value="Onsdag">
+                          Onsdag
+                        </option>
+                        <option className="text-left" value="Torsdag">
+                          Torsdag
+                        </option>
+                        <option className="text-left" value="Fredag">
+                          Fredag
+                        </option>
                       </select>
 
-                      <div className="flex">
+                      <input
+                        onChange={handleEventname}
+                        className={`${styles.regularTextStyle} w-[100%] text-left`}
+                        placeholder="Event namn"
+                        type="text"
+                        required
+                      ></input>
+
+                      <div className={`${styles.regularTextStyle} flex`}>
                         <input
                           onChange={handleEventTimeTo}
-                          className="w-[100px]"
+                          className="w-[75px] text-left"
                           placeholder="Tid till"
                           type="text"
                           pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"
-                          title="Enter a valid 24-hour time (HH:mm)"
+                          title="Skriv en giltig tid (HH:mm)"
                           required
                         ></input>
                         <input
                           onChange={handleEventTimeFrom}
-                          className="w-[100px]"
+                          className="w-[75px] text-left"
                           placeholder="Tid från"
                           type="text"
                           pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"
-                          title="Enter a valid 24-hour time (HH:mm)"
+                          title="Skriv en giltig tid (HH:mm)"
                           required
                         ></input>
                       </div>
                       <button
-                        className="text-white bg-green-700 rounded-sm"
+                        className={`${styles.regularTextStyle}  text-white bg-customBlue rounded-sm`}
                         type="submit"
                       >
                         Boka
@@ -154,7 +185,12 @@ export default function Calendar() {
               </div>
 
               {/* Generate working hours from 08.00 - 17.00 in every column */}
-              {generateHourlyStructure()}
+              {generateHourlyStructure({
+                eventDay,
+                timeFrom,
+                timeTo,
+                eventTitle,
+              })}
             </div>
           </div>
         );
