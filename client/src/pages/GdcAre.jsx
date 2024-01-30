@@ -3,6 +3,7 @@ import calendar from "../assets/calendar.svg";
 import basket from "../assets/basket.svg";
 import mucle from "../assets/mucle.svg";
 import crown from "../assets/crown.svg";
+import mountain from "../assets/mountain.svg";
 // Components
 import MeetingGdc from "../components/MeetingGdc";
 import MeetingCcv from "../components/MeetingCcv";
@@ -60,13 +61,12 @@ export default function GdcAre() {
               <img className="w-7 h-7 relative" src={mucle} />
             </div>
           </div>
-
           <Birthday />
         </div>
       </div>
 
       {/* Monthly happenings column  */}
-      <div className="w-[382px] h-[640px] bg-neutral-50 rounded-[20px]">
+      <div className="  w-[382px] h-[640px] bg-neutral-50 rounded-[20px] overflow-y-scroll no-scrollbar  overflow-auto ">
         <MonthlyEvents />
       </div>
     </div>
