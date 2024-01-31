@@ -1,9 +1,12 @@
+import { styles } from "../styles";
+
 // Icons
 import calendar from "../assets/calendar.svg";
 import basket from "../assets/basket.svg";
 import mucle from "../assets/mucle.svg";
 import crown from "../assets/crown.svg";
 import mountain from "../assets/mountain.svg";
+import smile from "../assets/smile.svg";
 // Components
 import MeetingGdc from "../components/MeetingGdc";
 import MeetingCcv from "../components/MeetingCcv";
@@ -61,13 +64,22 @@ export default function GdcAre() {
               <img className="w-7 h-7 relative" src={mucle} />
             </div>
           </div>
-          <Birthday />
+
+          <div className="relative">
+            <Birthday />
+            <div className=" absolute w-[50px] h-[50px] p-[9.72px] bg-yellow-300 rounded-[36.46px] -left-[-50px] -top-4 ">
+              <img className="w-7 h-7 relative" src={smile} />
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Monthly happenings column  */}
       <div className="  w-[382px] h-[640px] bg-neutral-50 rounded-[20px] overflow-y-scroll no-scrollbar  overflow-auto ">
         <MonthlyEvents />
+        <div className=" absolute -left-[-1520px] -top-[-9px]  w-[50px] h-[50px] p-3 bg-blue-700 rounded-[38.13px]">
+          <img className="w-7 h-7 absolut" src={mountain} />
+        </div>
       </div>
     </div>
   );
