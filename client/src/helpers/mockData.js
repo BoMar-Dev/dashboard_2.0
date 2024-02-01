@@ -69,3 +69,40 @@ export const happenings = [
   ];
   
   console.log(happenings);
+
+
+  export const meetings = [
+    {
+      id: 1,
+      date: "2 maj",
+      title: "Kontorslunch",
+      fromTime: "12:00 - ",
+      toTime: "13:00",
+      place: ", Broken",
+    },
+    {
+      id: 2,
+      day: "Måndag",
+      title: "Retrospektiv",
+      fromTime: "10:30 - ",
+      toTime: "11:30",
+      place: ", Sylarna",
+    },
+    {
+      id: 3,
+      day: "Måndag",
+      title: "Veckomöte",
+      fromTime: "09:30 - ",
+      toTime: "10:00",
+      place: ", Åreskutan",
+    },
+    {
+      id: 2,
+      day: "Torsdag",
+      title: "DEMO",
+      fromTime: "10:00 - ",
+      toTime: "11:00",
+      place: ", Storulvån",
+    },
+  ];
+
