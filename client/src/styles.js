@@ -38,7 +38,7 @@ const styles = {
     regularHeaderText: "text-[22px] font-semibold font-['Source Sans Pro']",
 
     
-      eventBox: 'bg-yellow-300 p-2 text-black text-sm overflow-hidden', // Adjust colors and sizes as needed
+    meetingStyle : 'bg-babyBlue   text-black text-sm overflow-hidden rounded-[8px] text-center', // Adjust colors and sizes as needed
 
    
   };

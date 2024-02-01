@@ -1,32 +1,18 @@
-import { addDays, format, startOfWeek, getWeek, addWeeks } from "date-fns";
+// Date-fns
+import { addDays, format, startOfWeek, getWeek} from "date-fns";
+
+// Package ( note sure this on works )
+import isHoliday from "holidays-nordic";
+
+
+// Helper TRANSLATE
 import {
   translateMonthToSwedish,
   translateWeekdayToSwedish,
 } from "./translate";
-import isHoliday from "holidays-nordic";
-
-// Click on a date and get it logged in the console
-export const clickOnSpecificDate = (clickedDate) => {
-  console.log("Clicked date:", clickedDate);
-};
 
 
-
-
-
-
-//Get week
-export const whatWeekIsIt = () =>{
-
-  const weeknumber = getWeek(new Date(), {
-   weekStartsOn: 1,
-    firstWeekContainsDate: 4
-  })
- 
-  return weeknumber
-}
-
-// Generat dynamic(real) dates in the 5 day column calendar
+// C  A  L  E  N  D  A  R -   Generat dynamic(real) dates in the 5 day column calendar
 export const generateDates = (currentDate) => {
   const firstDayOfWorkWeek = startOfWeek(currentDate, { weekStartsOn: 1 });
   const daysDate = [];
@@ -51,6 +37,25 @@ export const generateDates = (currentDate) => {
 };
 
 
+// Click on a date and get it logged in the console
+export const clickOnSpecificDate = (clickedDate) => {
+  console.log("Clicked date:", clickedDate);
+};
+
+
+//Get week
+export const whatWeekIsIt = () =>{
+
+  const weeknumber = getWeek(new Date(), {
+   weekStartsOn: 1,
+    firstWeekContainsDate: 4
+  })
+ 
+  return weeknumber
+}
+
+
+//  W  I  D  G  E  T 
 export const addTodo = (e, todo, todos, setTodo, setTodos, MAX_TODOS) => {
   e.preventDefault();
   if (todo !== "") {
@@ -65,7 +70,7 @@ export const addTodo = (e, todo, todos, setTodo, setTodos, MAX_TODOS) => {
 };
 
 
-// saving whats put inside the input field
+// //  W  I  D  G  E  T -  saving whats put inside the input field
 export const handleChange = (e, setTodo ) => {
   setTodo(e.target.value);
   e.preventDefault();
@@ -74,7 +79,7 @@ export const handleChange = (e, setTodo ) => {
 
 
 
-// Reset to weekly challange widget 
+//   W  I  D  G  E  T  Reset to weekly challange widget 
 export const reset = (setCount) => {
   setCount({
     pushups: 0,
@@ -83,11 +88,10 @@ export const reset = (setCount) => {
     lounges: 0,
     sitInSofa: 0,
   });
-  // Assuming you also want to reset the challenge status
 };
  
 
-// Increment to weekly challange widget
+// //  W  I  D  G  E  T -  Increment to weekly challange widget
 export const plus = (workout, count, setCount) => {
   if (count[workout] < 100) {
     setCount((prevCount) => ({
@@ -100,7 +104,7 @@ export const plus = (workout, count, setCount) => {
   console.log(`${workout} Increment button is clicked`);
 };
 
-// Decrement to weekly challange widget 
+// //  W  I  D  G  E  T  -  Decrement to weekly challange widget 
  export const minus = (workout, count, setCount) => {
   if (count[workout] > 0) {
     setCount((prevCount) => ({
@@ -112,4 +116,3 @@ export const plus = (workout, count, setCount) => {
   }
   console.log(`${workout} Decrement button is clicked`);
 };
-//-------------------------------------------------------------

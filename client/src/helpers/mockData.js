@@ -74,35 +74,35 @@ export const happenings = [
   export const meetings = [
     {
       id: 1,
-      date: "2 maj",
+      day: "Onsdag",
       title: "Kontorslunch",
-      fromTime: "12:00 - ",
+      fromTime: "12:00 ",
       toTime: "13:00",
-      place: ", Broken",
+      place: "Broken",
     },
     {
       id: 2,
       day: "Måndag",
       title: "Retrospektiv",
-      fromTime: "10:30 - ",
+      fromTime: "10:30 ",
       toTime: "11:30",
-      place: ", Sylarna",
+      place: "Sylarna",
     },
     {
       id: 3,
       day: "Måndag",
       title: "Veckomöte",
-      fromTime: "09:30 - ",
+      fromTime: "09:30", // OBS - no diffrance on half hours ? Need to be fixed
       toTime: "10:00",
-      place: ", Åreskutan",
+      place: "Åreskutan",
     },
     {
       id: 2,
       day: "Torsdag",
       title: "DEMO",
-      fromTime: "10:00 - ",
+      fromTime: "10:00 ",
       toTime: "11:00",
-      place: ", Storulvån",
+      place: " Storulvån",
     },
   ];
 
