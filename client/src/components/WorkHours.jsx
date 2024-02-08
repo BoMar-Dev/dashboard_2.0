@@ -1,5 +1,6 @@
-import React from "react";
 import { styles } from "../styles";
+
+// Mockdata
 import { meetings } from "../helpers/mockData";
 
 const generateHourlyStructure = (currentDay) => {
