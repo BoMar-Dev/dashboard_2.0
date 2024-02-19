@@ -67,8 +67,7 @@ export default function Birthday() {
                 <span style={{ fontSize: "70px" }}>GRATTIS</span>
               </p>
             ) : (
-              nextBirthday.daysUntilBirthday >
-              15(
+              nextBirthday.daysUntilBirthday > 15 && (
                 // Display "Ingen födelsedag de kommande 15 dagarna" if next birthday is more than 15 days away
                 <p className="days absolute bottom-7 left-10 text-neutral-50 text-[120px] font-semibold font-['Inter']">
                   Ingen födelsedag de kommande 15 dagarna
@@ -76,15 +75,9 @@ export default function Birthday() {
               )
             )}
 
-            {/* Display "dagar kvar tills" */}
-            {nextBirthday.daysUntilBirthday !== 0 && (
-              <p className="dagar-kvar absolute bottom-10 left-10 text-xl font-bold text-white">
-                dagar kvar tills
-              </p>
-            )}
-
             {/* Display the name with or without "födelsedag" based on the days until the next birthday */}
             <p className="namn absolute bottom-4 left-10 text-xl font-bold text-white">
+              <p>dagar kvar till</p>
               {nextBirthday.name}
               {nextBirthday.daysUntilBirthday !== 0 && <span> födelsedag</span>}
             </p>

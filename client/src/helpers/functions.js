@@ -92,27 +92,20 @@ export const reset = (setCount) => {
  
 
 // //  W  I  D  G  E  T -  Increment to weekly challange widget
+
 export const plus = (workout, count, setCount) => {
   if (count[workout] < 100) {
-    setCount((prevCount) => ({
-      ...prevCount,
-      [workout]: prevCount[workout] + 1,
-    }));
-  } else if (count[workout] === 100) {
+    setCount((prevCount) => ({  ...prevCount,[workout]: prevCount[workout] + 1, })); // this code takes the previous count state (prevCount), makes a copy of it, and then updates the count of the specified workout by adding 1.  // Finally, it sets this updated count as the new state for count.
+  } else if (count[workout] === 100) 
   
-  }
   console.log(`${workout} Increment button is clicked`);
 };
 
 // //  W  I  D  G  E  T  -  Decrement to weekly challange widget 
  export const minus = (workout, count, setCount) => {
   if (count[workout] > 0) {
-    setCount((prevCount) => ({
-      ...prevCount,
-      [workout]: prevCount[workout] - 1,
-    }));
+    setCount((prevCount) => ({ ...prevCount, [workout]: prevCount[workout] - 1, }));
   } else if (count[workout] < 100) {
-   
   }
   console.log(`${workout} Decrement button is clicked`);
 };
