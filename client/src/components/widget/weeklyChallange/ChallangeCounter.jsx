@@ -1,5 +1,5 @@
 import { styles } from "../../../styles";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 //Icons
 import pen from "../../../assets/pen.svg";
@@ -10,6 +10,8 @@ import { CiCircleMinus } from "react-icons/ci";
 import { reset } from "../../../helpers/functions";
 import { plus } from "../../../helpers/functions";
 import { minus } from "../../../helpers/functions";
+
+// Workout info ( so I can map )
 import { workouts } from "../../../helpers/workoutsData";
 
 export default function ChallangeCounter() {
@@ -20,6 +22,35 @@ export default function ChallangeCounter() {
     lounges: 0,
     sitInSofa: 0,
   });
+
+  useEffect(() => {
+    const fetchWorkoutsData = async () => {
+      try {
+        const response = await fetch("http://localhost:3001/api/challange");
+        const workoutData = await response.json();
+        console.log("This is the workout data", workoutData);
+        // Map the fetched data to count state
+        /* prettier-ignore */
+        setCount({
+          pushups: workoutData.find((item) => item.workout_name === "Armhävningar")
+          .count,
+          squat: workoutData.find((item) => item.workout_name === "Benböj")
+            .count,
+          situps: workoutData.find((item) => item.workout_name === "Sit-ups")
+            .count,
+          lounges: workoutData.find((item) => item.workout_name === "Utfall")
+            .count,
+          sitInSofa: workoutData.find(
+            (item) => item.workout_name === "Sitta i soffa"
+          ).count,
+        });
+      } catch (error) {
+        console.error("Error fetching workout data:", error);
+      }
+    };
+
+    fetchWorkoutsData();
+  }, []);
 
   return (
     <div>
@@ -37,6 +68,7 @@ export default function ChallangeCounter() {
               <li className={`${styles.regularTextStyle} mt-1 `}>
                 <div className="flex justify-between mb-3 ">
                   <h4 className="w-[150px]">{workout.displayWorkoutName} </h4>
+
                   <button
                     className="text-xl"
                     onClick={() => minus(workout.workout, count, setCount)}
@@ -44,12 +76,15 @@ export default function ChallangeCounter() {
                     <CiCircleMinus />
                   </button>
                   <p>{count[workout.workout]}</p>
+
                   <button
                     className="text-xl"
-                    onClick={() => plus(workout.workout, count, setCount)} // the function inside functons.js for decrement/increment will have 3 parameters, what workout, the count, and the setcount.
+                    onClick={() => plus(workout.workout, count, setCount)}
                   >
+                    {/* // the function inside functons.js for decrement/increment will have 3 parameters, what workout, the count, and the setcount. */}
                     <IoIosAddCircleOutline />
                   </button>
+
                   <p>/ 100</p>
                 </div>
               </li>

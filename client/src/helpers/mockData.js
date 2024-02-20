@@ -68,7 +68,7 @@ export const happenings = [
     },
   ];
   
-  console.log(happenings);
+  console.log("this is the monthly happenings data", happenings);
 
 
   export const meetings = [

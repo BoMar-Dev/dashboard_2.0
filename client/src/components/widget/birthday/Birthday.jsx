@@ -77,9 +77,14 @@ export default function Birthday() {
 
             {/* Display the name with or without "födelsedag" based on the days until the next birthday */}
             <p className="namn absolute bottom-4 left-10 text-xl font-bold text-white">
-              <p>dagar kvar till</p>
+              {nextBirthday.daysUntilBirthday > 0 && (
+                <>
+                  dagar kvar till
+                  <br />
+                </>
+              )}
               {nextBirthday.name}
-              {nextBirthday.daysUntilBirthday !== 0 && <span> födelsedag</span>}
+              {nextBirthday.daysUntilBirthday !== 0 && <> födelsedag</>}
             </p>
           </div>
         )}
