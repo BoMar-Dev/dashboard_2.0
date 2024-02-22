@@ -80,19 +80,18 @@ export const handleChange = (e, setTodo ) => {
 
 
 //   W  I  D  G  E  T  Reset to weekly challange widget 
-export const reset = (setCount) => {
-  setCount({
-    pushups: 0,
-    squat: 0,
-    situps: 0,
-    lounges: 0,
-    sitInSofa: 0,
-  });
-};
+    export const reset = (setCount) => {
+      setCount({
+        pushups: 0,
+        squat: 0,
+        situps: 0,
+        lounges: 0,
+        sitInSofa: 0,
+      });
+    };
  
 
 // //  W  I  D  G  E  T -  Increment to weekly challange widget
-
 export const plus = (workout, count, setCount) => {
   if (count[workout] < 100) {
     setCount((prevCount) => ({  ...prevCount,[workout]: prevCount[workout] + 1, })); // this code takes the previous count state (prevCount), makes a copy of it, and then updates the count of the specified workout by adding 1.  // Finally, it sets this updated count as the new state for count.

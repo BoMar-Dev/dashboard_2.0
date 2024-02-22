@@ -23,17 +23,18 @@ export default function ChallangeCounter() {
     sitInSofa: 0,
   });
 
+  // G E T that will run as soon as the page reolde
   useEffect(() => {
     const fetchWorkoutsData = async () => {
       try {
-        const response = await fetch("http://localhost:3001/api/challange");
+        const response = await fetch("http://localhost:3001/api/challenge/");
         const workoutData = await response.json();
-        console.log("This is the workout data", workoutData);
+        console.log("Fetched workout data:", workoutData);
         // Map the fetched data to count state
-        /* prettier-ignore */
         setCount({
-          pushups: workoutData.find((item) => item.workout_name === "Armhävningar")
-          .count,
+          pushups: workoutData.find(
+            (item) => item.workout_name === "Armhävningar"
+          ).count,
           squat: workoutData.find((item) => item.workout_name === "Benböj")
             .count,
           situps: workoutData.find((item) => item.workout_name === "Sit-ups")
@@ -51,6 +52,60 @@ export default function ChallangeCounter() {
 
     fetchWorkoutsData();
   }, []);
+
+  // P U T - UPDATE -  that will run when OnClick next to the plus or minus function
+  const handleUpdate = async (workoutId, newCount) => {
+    try {
+      const response = await fetch(
+        `http://localhost:3001/api/challenge/${workoutId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ count: newCount }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const updatedWorkoutData = await response.json();
+      console.log("Workout  successfully:", updatedWorkoutData);
+      // Update local state with new count
+      setCount((prevState) => ({
+        ...prevState,
+        [workoutId]: newCount,
+      }));
+    } catch (error) {
+      console.error("Error updating workout data:", error);
+    }
+  };
+
+  // POST - reset function ( setting count of all values in workouts to 0)
+  const handleReset = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:3001/api/challenge/reset`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const updatedWorkoutData = await response.json();
+      console.log("Workout RESET successfully:", updatedWorkoutData);
+    } catch (error) {
+      console.error("Error updating workout data:", error);
+    }
+  };
 
   return (
     <div>
@@ -71,7 +126,10 @@ export default function ChallangeCounter() {
 
                   <button
                     className="text-xl"
-                    onClick={() => minus(workout.workout, count, setCount)}
+                    onClick={() => {
+                      minus(workout.workout, count, setCount);
+                      handleUpdate(workout.id, count[workout.workout] - 1);
+                    }}
                   >
                     <CiCircleMinus />
                   </button>
@@ -79,9 +137,11 @@ export default function ChallangeCounter() {
 
                   <button
                     className="text-xl"
-                    onClick={() => plus(workout.workout, count, setCount)}
+                    onClick={() => {
+                      plus(workout.workout, count, setCount);
+                      handleUpdate(workout.id, count[workout.workout] + 1);
+                    }}
                   >
-                    {/* // the function inside functons.js for decrement/increment will have 3 parameters, what workout, the count, and the setcount. */}
                     <IoIosAddCircleOutline />
                   </button>
 
@@ -95,7 +155,7 @@ export default function ChallangeCounter() {
           <button
             className={`${styles.regularTextStyle} bg-customPink hover:bg-customBlue text-white w-[75px] mt-0.5 px-2 rounded just`}
             onClick={() => {
-              reset(setCount);
+              handleReset(reset(setCount));
             }}
           >
             Reset
