@@ -100,6 +100,7 @@ export const plus = (workout, count, setCount) => {
   console.log(`${workout} Increment button is clicked`);
 };
 
+
 // //  W  I  D  G  E  T  -  Decrement to weekly challange widget 
  export const minus = (workout, count, setCount) => {
   if (count[workout] > 0) {

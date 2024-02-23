@@ -7,12 +7,17 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 import { CiCircleMinus } from "react-icons/ci";
 
 // Incriment, decrement and reset button functions
-import { reset } from "../../../helpers/functions";
-import { plus } from "../../../helpers/functions";
-import { minus } from "../../../helpers/functions";
+import { reset, plus, minus } from "../../../helpers/functions";
 
 // Workout info ( so I can map )
 import { workouts } from "../../../helpers/workoutsData";
+
+// Api functions
+import {
+  handleReset,
+  handleUpdate,
+  fetchWorkoutsData,
+} from "../../../helpers/apiFunctions";
 
 export default function ChallangeCounter() {
   const [count, setCount] = useState({
@@ -23,89 +28,9 @@ export default function ChallangeCounter() {
     sitInSofa: 0,
   });
 
-  // G E T that will run as soon as the page reolde
   useEffect(() => {
-    const fetchWorkoutsData = async () => {
-      try {
-        const response = await fetch("http://localhost:3001/api/challenge/");
-        const workoutData = await response.json();
-        console.log("Fetched workout data:", workoutData);
-        // Map the fetched data to count state
-        setCount({
-          pushups: workoutData.find(
-            (item) => item.workout_name === "Armhävningar"
-          ).count,
-          squat: workoutData.find((item) => item.workout_name === "Benböj")
-            .count,
-          situps: workoutData.find((item) => item.workout_name === "Sit-ups")
-            .count,
-          lounges: workoutData.find((item) => item.workout_name === "Utfall")
-            .count,
-          sitInSofa: workoutData.find(
-            (item) => item.workout_name === "Sitta i soffa"
-          ).count,
-        });
-      } catch (error) {
-        console.error("Error fetching workout data:", error);
-      }
-    };
-
-    fetchWorkoutsData();
+    fetchWorkoutsData(setCount);
   }, []);
-
-  // P U T - UPDATE -  that will run when OnClick next to the plus or minus function
-  const handleUpdate = async (workoutId, newCount) => {
-    try {
-      const response = await fetch(
-        `http://localhost:3001/api/challenge/${workoutId}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ count: newCount }),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const updatedWorkoutData = await response.json();
-      console.log("Workout  successfully:", updatedWorkoutData);
-      // Update local state with new count
-      setCount((prevState) => ({
-        ...prevState,
-        [workoutId]: newCount,
-      }));
-    } catch (error) {
-      console.error("Error updating workout data:", error);
-    }
-  };
-
-  // POST - reset function ( setting count of all values in workouts to 0)
-  const handleReset = async () => {
-    try {
-      const response = await fetch(
-        `http://localhost:3001/api/challenge/reset`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const updatedWorkoutData = await response.json();
-      console.log("Workout RESET successfully:", updatedWorkoutData);
-    } catch (error) {
-      console.error("Error updating workout data:", error);
-    }
-  };
 
   return (
     <div>
@@ -128,7 +53,11 @@ export default function ChallangeCounter() {
                     className="text-xl"
                     onClick={() => {
                       minus(workout.workout, count, setCount);
-                      handleUpdate(workout.id, count[workout.workout] - 1);
+                      handleUpdate(
+                        workout.id,
+                        count[workout.workout] - 1,
+                        setCount
+                      );
                     }}
                   >
                     <CiCircleMinus />
@@ -139,7 +68,11 @@ export default function ChallangeCounter() {
                     className="text-xl"
                     onClick={() => {
                       plus(workout.workout, count, setCount);
-                      handleUpdate(workout.id, count[workout.workout] + 1);
+                      handleUpdate(
+                        workout.id,
+                        count[workout.workout] + 1,
+                        setCount
+                      );
                     }}
                   >
                     <IoIosAddCircleOutline />
