@@ -17,7 +17,7 @@ import {
   handleReset,
   handleUpdate,
   fetchWorkoutsData,
-} from "../../../helpers/apiFunctions";
+} from "../../../helpers/API/weeklyChallengeAPI";
 
 export default function ChallangeCounter() {
   const [count, setCount] = useState({

@@ -1,5 +1,5 @@
 
-// GET - fetch all data 
+// GET
 export const fetchWorkoutsData = async (setCount) => {
     try {
       const response = await fetch("http://localhost:3001/api/challenge/");
@@ -66,6 +66,8 @@ export const fetchWorkoutsData = async (setCount) => {
     }
   };
 
+
+
   // POST - reset function ( setting count of all values in workouts to 0)
   export const handleReset = async () => {
     try {
@@ -89,3 +91,4 @@ export const fetchWorkoutsData = async (setCount) => {
       console.error("Error updating workout data:", error);
     }
   };
+

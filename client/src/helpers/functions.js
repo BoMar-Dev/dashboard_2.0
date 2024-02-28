@@ -56,26 +56,11 @@ export const whatWeekIsIt = () =>{
 
 
 //  W  I  D  G  E  T 
-export const addTodo = (e, todo, todos, setTodo, setTodos, MAX_TODOS) => {
-  e.preventDefault();
-  if (todo !== "") {
-    if (todos.length < MAX_TODOS) {
-      setTodos([...todos, todo]);
-      setTodo("");
-      console.log("Todo added:", todo);
-    } else {
-      console.log("Maximum 10 todos reached. Cannot add more.");
-    }
-  }
-};
+
 
 
 // //  W  I  D  G  E  T -  saving whats put inside the input field
-export const handleChange = (e, setTodo ) => {
-  setTodo(e.target.value);
-  e.preventDefault();
-  console.log(e.target.value);
-};
+
 
 
 

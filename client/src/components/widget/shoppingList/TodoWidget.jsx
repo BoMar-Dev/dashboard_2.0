@@ -6,33 +6,30 @@ import { GoPlusCircle } from "react-icons/go";
 // Components inside the shoppingList folder
 import { TodoList } from "./TodoList";
 
-// Helpers
-import { addTodo } from "../../../helpers/functions";
-import { handleChange } from "../../../helpers/functions";
+// Api functions
+import { handleNewTodo } from "../../../helpers/API/todoAPI";
 
 export default function WidgetOne() {
-  const [todo, setTodo] = useState("");
+  const [newTodo, setNewTodo] = useState("");
   const [todos, setTodos] = useState([]);
   const [showAddTodoForm, setShowAddTodoForm] = useState(false);
 
-  const MAX_TODOS = 8;
-
-  const handleAddTodo = (e) => {
-    e.preventDefault();
-    addTodo(e, todo, todos, setTodo, setTodos, MAX_TODOS);
-    closeAddTodoForm(e);
-  };
-
-  // Open input when clicking on pen icon
-  const openAddTodo = (e) => {
+  const openAddTodoInput = (e) => {
     setShowAddTodoForm(true);
     e.preventDefault();
   };
 
-  // closing input when + i clicked and todo is added to the state of all todos.
-  const closeAddTodoForm = (e) => {
+  const closeAddTodoInput = (e) => {
     setShowAddTodoForm(false);
-    e.preventDefault();
+  };
+
+  const handleInputChange = (e, setTodo) => {
+    if (e.target.value !== "") {
+      setTodo(e.target.value);
+      console.log(e.target.value);
+    } else {
+      console.log("The input value is empty");
+    }
   };
 
   return (
@@ -43,7 +40,7 @@ export default function WidgetOne() {
           <img
             className="cursor-pointer w-7 h-7"
             src={pen}
-            onClick={openAddTodo}
+            onClick={openAddTodoInput}
           />
         </div>
 
@@ -54,11 +51,13 @@ export default function WidgetOne() {
               type="text"
               name="todo"
               placeholder="Vad behöver vi köpa . . . ."
-              onChange={(e) => handleChange(e, setTodo)}
+              onChange={(e) => handleInputChange(e, setNewTodo)}
             />
             <button
-              className={`${styles.regularTextStyle}bg-buttonGreen text-[17px] ml-6  rounded-full  `}
-              onClick={handleAddTodo}
+              className={`${styles.regularTextStyle} bg-buttonGreen text-[17px] ml-6  rounded-full  `}
+              onClick={() =>
+                handleNewTodo(todos, setTodos, newTodo, closeAddTodoInput)
+              }
             >
               <GoPlusCircle className="bg-buttonGreen rounded-full" />
             </button>
@@ -71,3 +70,15 @@ export default function WidgetOne() {
     </div>
   );
 }
+
+// EXPLENATION OF LINE 55. WHY I NEED TO TO IT LIKE THAND, AND NOT DIRECTLY INSIDE {handleNewTodo}
+/*
+ onClick Event Handler: This attribute specifies the function to run when the button is clicked. It expects a function.
+
+ Arrow Function (() => {...}): This is an anonymous function declaration using arrow syntax. It's a concise way to define a function in JavaScript.
+
+ handleNewTodo: This is the function that you want to execute when the button is clicked. However, instead of directly passing handleNewTodo, you wrap it inside the arrow function. This wrapping ensures that handleNewTodo is not executed immediately when the component renders, but rather when the button is clicked.
+
+ Parameters: Inside the arrow function, you're passing parameters to handleNewTodo. These parameters (todos, setTodos, newTodo, closeAddTodoForm) are necessary for handleNewTodo to perform its task correctly. By passing them in this way, you're essentially creating a closure, ensuring that handleNewTodo has access to these variables when it's eventually called upon button click.
+
+ So, when the button is clicked, the arrow function is executed, which in turn calls handleNewTodo with the provided parameters. This delayed execution (deferred until button click) is crucial for the expected behavior of your application */

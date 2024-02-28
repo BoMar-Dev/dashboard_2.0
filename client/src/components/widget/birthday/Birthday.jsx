@@ -2,23 +2,15 @@ import React, { useEffect, useState } from "react";
 import { format, differenceInDays } from "date-fns";
 import bgBirthday from "../../../assets/bg-birthday.jfif";
 
+// Api function
+import { fetchBirthdaysApi } from "../../../helpers/API/birthdayAPI";
+
 export default function Birthday() {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [birthdays, setBirthdays] = useState([]);
 
   useEffect(() => {
-    const fetchBirthdaysApi = async () => {
-      try {
-        const response = await fetch("http://localhost:3001/api/birthdays");
-        const data = await response.json();
-        setBirthdays(data);
-        console.log("This is CGI birthdays", data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchBirthdaysApi();
+    fetchBirthdaysApi(setBirthdays);
   }, []);
 
   const getNextBirthday = () => {
