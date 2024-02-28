@@ -40,18 +40,14 @@ router.get("/todo", (req, res) => {
   
   
   // D E L E T E - Todo
-  
-  router.delete("/todo", (req,res)=>{
-      const q = "DELETE FROM todos WHERE item = ?"
-      const values = [
-          req.body.item,
-          req.body.id
-  
-      ]
-      db.query(q, values, (err,data)=>{
-          if(err) return res.json(err)
-          return res.json(` -- ${req.body.item} -- has been removed from todo-list`)
-      })
-  })
+  router.delete("/todo/:id", (req, res) => {
+    const q = "DELETE FROM todos WHERE id = ?";
+    const values = [req.params.id];
+    db.query(q, values, (err, data) => {
+      if (err) return res.json(err);
+      return res.json(`Todo with id ${req.params.id} has been removed from the todo list`);
+      // In postman this when delete is successful 
+    });
+  });
   
   export default router;
