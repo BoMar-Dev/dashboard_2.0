@@ -7,6 +7,8 @@ import cors from "cors"
 import birthdays from "./router/birthdays.js"
 import weeklyChallange from "./router/weeklyChallange.js"
 import todo from "./router/todo.js"
+import responsability from "../server/router/responsability.js"
+
 const app = express();
 
 dotenv.config();
@@ -39,6 +41,7 @@ app.listen(PORT, () => {
   app.use("/api", birthdays);
   app.use("/api", weeklyChallange )
   app.use("/api", todo) 
+  app.use("/api", responsability)
   
   
 // G E T
