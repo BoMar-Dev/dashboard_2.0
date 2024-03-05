@@ -5,8 +5,8 @@ import { styles } from "../../../styles";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
 
-// Api functions
-import { fetchtodo } from "../../../helpers/API/todoAPI";
+// API functions
+import { fetchtodo } from "../../../functions/API/todoAPI";
 
 export const TodoList = (todos, setTodos, newTodoList) => {
   // G E T all todos

@@ -1,5 +1,5 @@
 
-// GET
+// G E T -  all the current values for each workout
 export const fetchWorkoutsData = async (setCount) => {
     try {
       const response = await fetch("http://localhost:3001/api/challenge/");

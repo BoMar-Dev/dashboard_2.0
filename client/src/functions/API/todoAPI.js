@@ -1,5 +1,4 @@
-
- // G E T 
+ // G E T - all todo items
  export const fetchtodo = async (setTodos) => {
     try {
       const response = await fetch("http://localhost:3001/api/todo/");
@@ -12,9 +11,9 @@
   };
 
 
-
-  export const handleNewTodo = async (todos, setNewTodo, newTodo, closeAddTodoForm) => {
-    const MAX_TODOS = 8;
+ // P O S T -  new todo item
+  export const handleNewTodo = async (todos, setNewTodo, newTodo, closeAddTodoInput) => {
+  
 
     try {
       const response = await fetch("http://localhost:3001/api/todo/", {
@@ -29,14 +28,13 @@
         throw new Error("Network response was not ok");
       }
 
-      // Get the response data (the newly created todo object)
       const data = await response.json();
-      if (todos.length < MAX_TODOS) {
+    
         setTodos([...todos, data.newTodo]);
         setNewTodo("");
         console.log("TODO added successfully");
         closeAddTodoInput();
-      }
+      
 
     } catch (error) {
       console.log("Error:", error);

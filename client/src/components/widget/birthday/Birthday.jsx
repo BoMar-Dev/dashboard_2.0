@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { format, differenceInDays } from "date-fns";
 import bgBirthday from "../../../assets/bg-birthday.jfif";
 
-// Api function
-import { fetchBirthdaysApi } from "../../../helpers/API/birthdayAPI";
+// API function
+import { fetchBirthdaysApi } from "../../../functions/API/birthdayAPI";
 
 export default function Birthday() {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -67,7 +67,7 @@ export default function Birthday() {
               )
             )}
 
-            {/* Display the name with or without "födelsedag" based on the days until the next birthday */}
+            {/* Display the name with or without "födelsedag" based on thelpers days until the next birthday */}
             <p className="namn absolute bottom-4 left-10 text-xl font-bold text-white">
               {nextBirthday.daysUntilBirthday > 0 && (
                 <>

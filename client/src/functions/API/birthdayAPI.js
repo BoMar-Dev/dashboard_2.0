@@ -1,4 +1,4 @@
-// G E T
+// G E T - get all CGI birthdays
 export const fetchBirthdaysApi = async (setBirthdays) => {
     try {
       const response = await fetch("http://localhost:3001/api/birthdays");

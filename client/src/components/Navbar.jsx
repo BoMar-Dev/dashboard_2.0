@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { styles } from "../styles";
+
+// Logo / Icons
 import logo from "../assets/logo.svg";
 import gdcactive from "../assets/gdcactive.svg";
 import galleriactive from "../assets/galleriactive.svg";

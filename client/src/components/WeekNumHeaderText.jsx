@@ -1,7 +1,7 @@
 import { styles } from "../styles";
 
-// Helpers
-import { whatWeekIsIt } from "../helpers/functions";
+// Functions / Helpers
+import { whatWeekIsIt } from "../functions/functions";
 
 export default function WeekNumHeaderText() {
   return (

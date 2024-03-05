@@ -1,5 +1,3 @@
-import { styles } from "../styles";
-
 // Icons
 import calendar from "../assets/calendar.svg";
 import basket from "../assets/basket.svg";

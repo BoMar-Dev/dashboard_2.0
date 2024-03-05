@@ -6,18 +6,18 @@ import pen from "../../../assets/pen.svg";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { CiCircleMinus } from "react-icons/ci";
 
-// Incriment, decrement and reset button functions
-import { reset, plus, minus } from "../../../helpers/functions";
+// Functions / Helpers
+import { reset, plus, minus } from "../../../functions/functions";
 
 // Workout info ( so I can map )
-import { workouts } from "../../../helpers/workoutsData";
+import { workouts } from "../../../functions/workoutsData";
 
-// Api functions
+// API functions
 import {
   handleReset,
   handleUpdate,
   fetchWorkoutsData,
-} from "../../../helpers/API/weeklyChallengeAPI";
+} from "../../../functions/API/weeklyChallengeAPI";
 
 export default function ChallangeCounter() {
   const [count, setCount] = useState({

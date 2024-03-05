@@ -1,5 +1,7 @@
 import { styles } from "../styles";
-import { happenings } from "../helpers/mockData";
+
+// Functions / Helpers
+import { happenings } from "../functions/mockData";
 
 export default function MonthlyEvents() {
   return (

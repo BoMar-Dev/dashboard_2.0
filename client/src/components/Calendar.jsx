@@ -1,10 +1,10 @@
-// Calendar.jsx
 import React, { useState } from "react";
 import { styles } from "../styles";
 import { format } from "date-fns";
-import pen from "../assets/pen.svg";
-import { clickOnSpecificDate } from "../helpers/functions";
-import { generateDates } from "../helpers/functions";
+
+// Functions/helpers
+import { clickOnSpecificDate } from "../functions/functions";
+import { generateDates } from "../functions/functions";
 import generateHourlyStructure from "../components/WorkHours";
 
 export default function Calendar() {

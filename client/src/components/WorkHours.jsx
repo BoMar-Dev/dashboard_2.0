@@ -1,7 +1,7 @@
 import { styles } from "../styles";
 
 // Mockdata
-import { meetings } from "../helpers/mockData";
+import { meetings } from "../functions/mockData";
 
 const generateHourlyStructure = (currentDay) => {
   const hours = Array.from({ length: 10 }, (_, i) => i + 8);

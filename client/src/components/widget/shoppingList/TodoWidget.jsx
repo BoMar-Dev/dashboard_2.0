@@ -3,13 +3,15 @@ import { styles } from "../../../styles";
 import pen from "../../../assets/pen.svg";
 import { GoPlusCircle } from "react-icons/go";
 
-// Components inside the shoppingList folder
+// Components inside the shoppingList folder that will render out all the items inside the todos
 import { TodoList } from "./TodoList";
 
-// Api functions
-import { handleNewTodo } from "../../../helpers/API/todoAPI";
+// API functions
+import { handleNewTodo } from "../../../functions/API/todoAPI";
 
 export default function WidgetOne() {
+  const maxTodos = 8;
+
   const [newTodo, setNewTodo] = useState("");
   const [todos, setTodos] = useState([]);
   const [showAddTodoForm, setShowAddTodoForm] = useState(false);
@@ -55,23 +57,29 @@ export default function WidgetOne() {
             />
             <button
               className={`${styles.regularTextStyle} bg-buttonGreen text-[17px] ml-6  rounded-full  `}
-              onClick={() =>
-                handleNewTodo(todos, setTodos, newTodo, closeAddTodoInput)
-              }
+              onClick={() => {
+                // Check if the length of todos is less than 8 before calling handleNewTodo
+                if (todos.length < maxTodos) {
+                  handleNewTodo(todos, setTodos, newTodo, closeAddTodoInput);
+                } else {
+                  console.log(
+                    "Max Todo Item of 8 is reached. Your latest item/todo will not be added to the list"
+                  );
+                }
+              }}
             >
               <GoPlusCircle className="bg-buttonGreen rounded-full" />
             </button>
           </form>
         )}
-
-        {/* // rendering list structure from helper folder */}
+        {/* // rendering list structure from functions/helpers folder */}
         {TodoList(todos, setTodos)}
       </div>
     </div>
   );
 }
 
-// EXPLENATION OF LINE 55. WHY I NEED TO TO IT LIKE THAND, AND NOT DIRECTLY INSIDE {handleNewTodo}
+// EXPLANATION OF LINE 55. WHY I HAVE TO DO IT AS AND NOT DIRECTLY INSIDE {handleNewTodo}
 /*
  onClick Event Handler: This attribute specifies the function to run when the button is clicked. It expects a function.
 
