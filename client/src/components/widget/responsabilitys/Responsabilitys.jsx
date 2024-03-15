@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 // Functions/ Helpers
 import { whatWeekIsIt } from "../../../functions/functions";
 
+//Endpoint
+const responsabilityEndpoint = "http://localhost:3001/api/responsability";
+
 export default function Responsabilitys() {
   const [responsability, setResponsability] = useState([]);
 
@@ -31,11 +34,9 @@ export default function Responsabilitys() {
   useEffect(() => {
     const fetchResponsabilityApi = async () => {
       try {
-        const response = await fetch(
-          "http://localhost:3001/api/responsability"
-        );
-
+        const response = await fetch(responsabilityEndpoint);
         const responsabilityData = await response.json();
+
         const currentWeek = whatWeekIsIt();
         const nextWeek = whatWeekIsIt() + 1;
         const weekAfterNext = whatWeekIsIt() + 2;

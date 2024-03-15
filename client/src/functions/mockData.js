@@ -1,7 +1,7 @@
 export const happenings = [
     {
       id: 1,
-      date: "2 maj",
+      date: "2 mar",
       title: "Kontorslunch",
       fromTme: "12:00 - ",
       toTime: "13:00",
@@ -9,7 +9,7 @@ export const happenings = [
     },
     {
       id: 2,
-      date: "3 maj",
+      date: "3 mar",
       title: "Retrospektiv",
       fromTme: "10:30 - ",
       toTime: "11:30",
@@ -17,7 +17,7 @@ export const happenings = [
     },
     {
       id: 2,
-      date: "5 maj",
+      date: "5 mar",
       title: "Ida Fyller år",
       fromTme: "",
       toTime: "",
@@ -26,7 +26,7 @@ export const happenings = [
   
     {
       id: 2,
-      date: "6 maj",
+      date: "6 mar",
       title: "Veckomöte",
       fromTme: "09:30 - ",
       toTime: "10:00",
@@ -35,7 +35,7 @@ export const happenings = [
   
     {
       id: 2,
-      date: "8 maj",
+      date: "8 mar",
       title: "Jobba från vita renen",
       fromTme: "10:00 - ",
       toTime: "16:30",
@@ -44,7 +44,7 @@ export const happenings = [
   
     {
       id: 2,
-      date: "10 maj",
+      date: "10 mar",
       title: "AW",
       fromTme: "16.30 - ",
       toTime: "",
@@ -52,7 +52,7 @@ export const happenings = [
     },
     {
       id: 2,
-      date: "15 maj",
+      date: "15 mar",
       title: "Erik fyller år",
       fromTme: "",
       toTime: "",
@@ -60,7 +60,7 @@ export const happenings = [
     },
     {
       id: 2,
-      date: "17 maj",
+      date: "17 mar",
       title: "DEMO",
       fromTme: "10:00 - ",
       toTime: "11:00",
@@ -92,7 +92,7 @@ export const happenings = [
       id: 3,
       day: "Måndag",
       title: "Veckomöte",
-      fromTime: "09:30", // OBS - no diffrance on half hours ? Need to be fixed
+      fromTime: "09:30", // OBS - no diffrance on the meetings that are below 1hour at the moment. Need to be fixed
       toTime: "10:00",
       place: "Åreskutan",
     },

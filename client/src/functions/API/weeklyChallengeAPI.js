@@ -1,8 +1,11 @@
+// Endpoint variables
+const weeklyChallengeEndpoint = "http://localhost:3001/api/challenge/"
+const resetWeeklyChallengeEndpoint = "http://localhost:3001/api/challenge/reset"
 
 // G E T -  all the current values for each workout
 export const fetchWorkoutsData = async (setCount) => {
     try {
-      const response = await fetch("http://localhost:3001/api/challenge/");
+      const response = await fetch(weeklyChallengeEndpoint);
       const workoutData = await response.json();
       console.log("Fetched workout data:", workoutData);
       
@@ -40,7 +43,7 @@ export const fetchWorkoutsData = async (setCount) => {
   export const handleUpdate = async (workoutId, newCount, setCount) => {
     try {
       const response = await fetch(
-        `http://localhost:3001/api/challenge/${workoutId}`,
+        `${weeklyChallengeEndpoint}${workoutId}`,
         {
           method: "PUT",
           headers: {
@@ -68,11 +71,10 @@ export const fetchWorkoutsData = async (setCount) => {
 
 
 
-  // POST - reset function ( setting count of all values in workouts to 0)
+  // P O S T - reset function ( setting count of all values in workouts to 0)
   export const handleReset = async () => {
     try {
-      const response = await fetch(
-        `http://localhost:3001/api/challenge/reset`,
+      const response = await fetch(resetWeeklyChallengeEndpoint,
         {
           method: "POST",
           headers: {

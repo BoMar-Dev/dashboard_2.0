@@ -1,7 +1,11 @@
  // G E T - all todo items
+
+ // Endpoint Variable
+const todoEndpoint = "http://localhost:3001/api/todo/"
+
  export const fetchtodo = async (setTodos) => {
     try {
-      const response = await fetch("http://localhost:3001/api/todo/");
+      const response = await fetch(todoEndpoint);
       const todoData = await response.json();
       console.log("Fetched TODO data:", todoData);
       setTodos(todoData);
@@ -16,7 +20,7 @@
   
 
     try {
-      const response = await fetch("http://localhost:3001/api/todo/", {
+      const response = await fetch(todoEndpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -49,7 +49,6 @@ export default function MonthlyEvents() {
               </div>
             </div>
             <div className="w-[305px] h-[0px] border border-neutral-300"></div>
-            {/* Repeat the pattern for other entries */}
           </div>
         );
       })}

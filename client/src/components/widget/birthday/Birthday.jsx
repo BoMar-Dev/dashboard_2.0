@@ -31,11 +31,17 @@ export default function Birthday() {
           birthdayDate: thisYearBirthday,
         };
       })
+      .filter((birthday) => birthday.daysUntilBirthday >= -1) // Filter out birthdays that have passed
       .sort((a, b) => a.daysUntilBirthday - b.daysUntilBirthday);
 
-    return sortedBirthdays.find(
-      (birthday) => birthday.daysUntilBirthday >= -15
-    );
+    // Check if there are any upcoming birthdays
+    if (sortedBirthdays.length > 0) {
+      // If there are upcoming birthdays, return the first one
+      return sortedBirthdays[0];
+    } else {
+      // If there are no upcoming birthdays within the next day, return null
+      return null;
+    }
   };
 
   const nextBirthday = getNextBirthday();

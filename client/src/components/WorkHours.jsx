@@ -1,10 +1,30 @@
 import { styles } from "../styles";
+import { useState, useEffect } from "react";
 
 // Mockdata
 import { meetings } from "../functions/mockData";
 
 const generateHourlyStructure = (currentDay) => {
   const hours = Array.from({ length: 10 }, (_, i) => i + 8);
+
+  // const [events, setEvents] = useState([]);
+
+  // const outlookEndpoint = "";
+
+  // useEffect(() => {
+  //   const fetchOutlookApi = async () => {
+  //     try {
+  //       const response = await fetch(outlookEndpoint);
+  //       const data = await response.json();
+  //       setEvents(data);
+  //       console.log("This is CGI ----------> E V E N T S", data);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   };
+
+  //   fetchOutlookApi();
+  // }, []);
 
   return (
     <div className="w-[160.58px] h-[363.54px] flex-col justify-start items-start gap-[28.17px] inline-flex ">
