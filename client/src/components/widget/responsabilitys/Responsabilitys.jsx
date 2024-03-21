@@ -96,7 +96,8 @@ export default function Responsabilitys() {
       <div className=" w-[382px] h-[270px] bg-neutral-50 rounded-[20px] mt-2 p-6 px-12">
         <div className="flex justify-between ">
           <h1 className={`${styles.regularHeaderText} mt-1`}>Ansvarsområden</h1>
-          <img className="cursor- w-7 h-7 mt-1" src={pen} />
+          {/* // Not sure if this will be editable */}
+          {/* <img className="cursor- w-7 h-7 mt-1" src={pen} /> */}
         </div>
 
         <table

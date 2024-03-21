@@ -39,7 +39,8 @@ export default function ChallangeCounter() {
           <h1 className={`${styles.regularHeaderText} mt-2`}>
             Veckans utmaning
           </h1>
-          <img className="cursor- w-7 h-7 mt-1" src={pen} />
+          {/* Not editabe for the moment  */}
+          {/* <img className="cursor- w-7 h-7 mt-1" src={pen} /> */}
         </div>
 
         {workouts.map((workout, index) => {

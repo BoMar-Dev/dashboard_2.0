@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Slider from "../components/Slider";
 
 export default function Galleri() {
   const [file, setFile] = useState();

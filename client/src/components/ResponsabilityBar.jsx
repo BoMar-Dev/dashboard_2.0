@@ -47,7 +47,7 @@ export default function ResponsabilityBar() {
       {responsabilitybar.slice(0, 1).map((item, index) => {
         return (
           <div
-            className="absolute flex bottom-0 right-[490px] w-[100px] h-[50px]   "
+            className="absolute flex bottom-0 right-[490px] w-[100px] h-[50px]    "
             key={index} // Use index as the key
           >
             <div className={`${styles.regularTextStyle} breakfast mx-8 flex`}>
@@ -62,10 +62,14 @@ export default function ResponsabilityBar() {
               <span className="mx-1  mt-1">{currentSupport}</span>
             </div>
 
-            <div className={`${styles.regularTextStyle} breakfast mx-8 flex`}>
-              <img className="w-10 h-7 absolut mr-2" src={test} />
-              <p className="mt-1">Test:</p>
-              <span className="mx-1  mt-1">{currentTest}</span>
+            <div
+              className={`${styles.regularTextStyle} breakfast mx-8 flex w-96`}
+            >
+              <img className="w-7 h-7 absolut mr-2" src={test} />
+              <div className="flex w-96">
+                <span className="mt-1">Test:</span>
+                <span className="mx-1 mt-1">{currentTest}</span>
+              </div>
             </div>
           </div>
         );

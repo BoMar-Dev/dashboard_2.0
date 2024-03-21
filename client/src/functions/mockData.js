@@ -44,7 +44,7 @@ export const happenings = [
   
     {
       id: 2,
-      date: "10 mar",
+      date: "23 mar",
       title: "AW",
       fromTme: "16.30 - ",
       toTime: "",
@@ -52,7 +52,7 @@ export const happenings = [
     },
     {
       id: 2,
-      date: "15 mar",
+      date: "25 mar",
       title: "Erik fyller år",
       fromTme: "",
       toTime: "",
@@ -60,7 +60,7 @@ export const happenings = [
     },
     {
       id: 2,
-      date: "17 mar",
+      date: "27 mar",
       title: "DEMO",
       fromTme: "10:00 - ",
       toTime: "11:00",
