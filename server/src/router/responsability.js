@@ -2,7 +2,6 @@ import express from "express";
 import mysql from "mysql";
 import dotenv from "dotenv";
 
-
 dotenv.config();
 
 const router = express.Router();

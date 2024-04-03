@@ -2,26 +2,23 @@ import express from "express";
 import mysql from "mysql";
 import dotenv from "dotenv";
 import cors from "cors"
-
-
-
-// multer fileupload
-
+import multer from 'multer';
 
 
 //Routes
-import birthdays from "./router/birthdays.js"
-import weeklyChallange from "./router/weeklyChallange.js"
-import todo from "./router/todo.js"
-import responsability from "../server/router/responsability.js"
-import galleryFileUpload from "../server/router/galleryFileUpload.js"
+import birthdays from "./src/router/birthdays.js"
+import weeklyChallange from "./src/router/weeklyChallange.js"
+import todo from "./src/router/todo.js"
+import responsability from "./src/router/responsability.js"
+import galleryFileUpload from "./src/router/galleryFileUpload.js"
 
-const app = express();
-
-dotenv.config();
-
+// variables
 const pw = process.env.SQLpw;
 const dbname = process.env.DBname;
+
+
+const app = express();
+dotenv.config();
 
 
 
@@ -46,7 +43,7 @@ app.listen(PORT, () => {
     );
   });
 
-
+  app.use("/api", galleryFileUpload )
   app.use("/api", birthdays);
   app.use("/api", weeklyChallange )
   app.use("/api", todo) 
@@ -54,23 +51,7 @@ app.listen(PORT, () => {
   // app.use("/api", galleryFileUpload, uploads.single("imgUrl"))
  
   
-  
-  
 // G E T
 app.get("/", (req, res) => {
   res.json("Hi from backend");
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
