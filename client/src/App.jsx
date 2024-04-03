@@ -17,9 +17,7 @@ function App() {
   };
 
   return (
-    <div
-      className={`min-h-screen md:w-full lg:w-[2500] flex ${changeBackgroundClass()}`}
-    >
+    <div className={`min-h-screen md:w-full lg:w-[2500] flex ${changeBackgroundClass()}`}>
       <Navbar />
       <main>
         <Outlet />

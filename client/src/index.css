@@ -9,11 +9,11 @@ html{
 
 /* Use the correct path to your photo */
 .bg-photo {
-  background-image: url("././assets//photo.png");
-  /* background-image: url("././assets/Sys.png"); */
+  /* background-image: url("././assets//photo.png"); */
+  background-image: url("././assets/Sys.png");
   background-size: cover; /* Adjust this property as needed */
   background-position: center;
-  /* background: linear-gradient(90deg, rgba(226, 25, 55, 0.2) 0%, rgba(175, 47, 47, 0.2) 18.7%, rgba(245, 195, 64, 0.2) 100%); */
+  background: linear-gradient(360deg, rgba(226, 25, 55, 0.2) 0%, rgba(175, 47, 47, 0.8) 18.7%, rgba(245, 195, 64, 0.2) 100%);
 
   /* Other necessary photo background styles */
 }

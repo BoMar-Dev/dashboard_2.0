@@ -40,6 +40,10 @@ const styles = {
     
     meetingStyle : 'bg-babyBlue   text-black text-sm overflow-hidden rounded-[8px] text-center', // Adjust colors and sizes as needed
 
+    activeButton : "outline-none ring-2 w-[85px] h-[85px] p-3 ring-customBlue focus:ring-opacity-50 rounded-[10px] bg-blue-100",
+
+    inactiveButton: "w-[85px] h-[85px] rounded-[10px] p-3"
+
    
   };
   

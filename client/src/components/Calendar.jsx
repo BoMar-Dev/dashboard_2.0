@@ -19,38 +19,11 @@ export default function Calendar() {
         const { date, weekdayTranslated, isHolidayToday } = dateAndWeekday;
 
         return (
-          <div
-            className={`${
-              date === format(new Date(), "d MMM")
-                ? styles.currentDayColumnDiv
-                : styles.dayColumnDiv
-            } px-6 h-[489px]`}
-            key={`${date}-${weekdayTranslated}`}
-          >
+          <div className={`${date === format(new Date(), "d MMM") ? styles.currentDayColumnDiv : styles.dayColumnDiv} px-6 h-[489px]`} key={`${date}-${weekdayTranslated}`}>
             <div onClick={() => clickOnSpecificDate(date)}>
               <div className="date-wrapper ml-4 mt-3">
-                <h3
-                  className={`${
-                    isHolidayToday
-                      ? styles.holidayDateText
-                      : date === format(currentDate, "d MMM")
-                      ? styles.currentDateText
-                      : styles.dateText
-                  }`}
-                >
-                  {date}
-                </h3>
-                <p
-                  className={`${
-                    isHolidayToday
-                      ? styles.holidayWeekdayText
-                      : date === format(currentDate, "d MMM")
-                      ? styles.currentWeekdayText
-                      : styles.weekdayText
-                  }`}
-                >
-                  {weekdayTranslated}
-                </p>
+                <h3 className={`${isHolidayToday ? styles.holidayDateText : date === format(currentDate, "d MMM") ? styles.currentDateText : styles.dateText}`}>{date}</h3>
+                <p className={`${isHolidayToday ? styles.holidayWeekdayText : date === format(currentDate, "d MMM") ? styles.currentWeekdayText : styles.weekdayText}`}>{weekdayTranslated}</p>
               </div>
               {generateHourlyStructure(weekdayTranslated)}
             </div>
