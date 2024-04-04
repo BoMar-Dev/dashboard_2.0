@@ -3,15 +3,15 @@
 I will then develop this design which is a Dashboard that will be used by the company internally
 The main focus will be to creat the MVP for the product.
 
-#--------START PROJECT----------------
+# --------START PROJECT----------------
 to start the frontend, cd to client folder and start with : npm run dev
 
 to start the server and backend, cd to server folder, and start with npm run start
 
-#---------------DESIGN -----------------
+# ---------------DESIGN -----------------
 Design created by ux-designer Johanna Sarskog ( https://jsarskog.myportfolio.com/ )
 
-#-------------------------------- FEATURES ----------------------------------------------------------------
+# -------------------------------- FEATURES ----------------------------------------------------------------
 
                           GDC ÅRE
 
