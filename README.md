@@ -27,13 +27,14 @@ Design created by ux-designer Johanna Sarskog ( https://jsarskog.myportfolio.com
 
 The dashboard uses a number of open source projects to work properly:
 
-- [React] - HTML enhanced for web apps!
-- [Tailwind] - lorem description ...
-- [DateFns] - lorem
-- [Node.js] - lorem
-- [Express] - lorem
--  [Multer] - lorem 
-- [MySQL] - lorem
+- [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for quickly building custom designs.
+- [DateFns](https://date-fns.org/) - Modern JavaScript date utility library.
+- [Node.js](https://nodejs.org/) - A JavaScript runtime built on Chrome's V8 JavaScript engine.
+- [Express](https://expressjs.com/) - Fast, unopinionated, minimalist web framework for Node.js.
+- [Multer](https://www.npmjs.com/package/multer) - Node.js middleware for handling `multipart/form-data`.
+- [MySQL](https://www.mysql.com/) - An open-source relational database management system.
+
 
 ## Installation
 
