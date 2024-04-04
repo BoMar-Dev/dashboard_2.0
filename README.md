@@ -44,8 +44,12 @@ Install the dependencies and devDependencies and start the client and server.
 ```sh
 cd client
 npm run dev
+```
+Then go back to root folder : 
+
+```sh
 cd ..
-cd server 
+cd server
 npm run start 
 ```
 
