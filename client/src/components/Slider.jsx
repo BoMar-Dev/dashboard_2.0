@@ -67,8 +67,8 @@ const Slider = () => {
   };
 
   return (
-    <div className="w-[1800px] h-[1080px]   relative bg-black">
-      <div style={{ backgroundImage: `url(/img/${imageNames[currentIndex]})` }} className="w-full bg-cover h-full bg-center duration-500">
+    <div className="w-screen h-screen relative " style={{ width: "calc(100vw - 120px)" }}>
+      <div style={{ backgroundImage: `url(/img/${imageNames[currentIndex]})` }} className=" bg-contain bg-no-repeat w-100% h-full bg-center duration-500">
         <div className="p-5">
           <div>
             <label htmlFor="file" className="sr-only">
