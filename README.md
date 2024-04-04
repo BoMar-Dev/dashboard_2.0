@@ -2,7 +2,7 @@
 
 Welcome to the CGI Dashboard repository!
 
-This project involves a 5-month internship at CGI CGD Åre/Östersund, where the primary task is to develop an internal dashboard. The dashboard, originally designed by a former UX intern, is now under development to create a functional tool for internal use within the company.
+This project involves a internship at CGI CGD Åre/Östersund, where the primary task is to develop an internal dashboard. The dashboard, originally designed by a former UX intern, is now under development to create a functional tool for internal use within the company.
 
 ## Objective
 The main focus of this internship is to develop the Minimum Viable Product (MVP) for the dashboard. This involves taking over the existing design and implementing the necessary features to provide a comprehensive overview for weekly and monthly activities.
