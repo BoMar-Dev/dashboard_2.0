@@ -1,29 +1,26 @@
-# CGI DASHBOARD
-## _Internal Dashboard for weekly and monthly overview
+# CGI Dashboard
 
-5 months of school are spent on an internship @ CGI CGD Åre/Östersund. Here I take over a design that a UX (former intern) has designed.
-I will then develop this design which is a Dashboard that will be used by the company internally
-The main focus will be to creat the MVP for the product.
+Welcome to the CGI Dashboard repository!
+
+This project involves a 5-month internship at CGI CGD Åre/Östersund, where the primary task is to develop an internal dashboard. The dashboard, originally designed by a former UX intern, is now under development to create a functional tool for internal use within the company.
+
+## Objective
+The main focus of this internship is to develop the Minimum Viable Product (MVP) for the dashboard. This involves taking over the existing design and implementing the necessary features to provide a comprehensive overview for weekly and monthly activities.
 
 ## Features
+### GDC Åre
+- Weekly calendar displaying dates, current day, and holidays.
+- Monthly calendar showcasing events for the current month.
+- Widgets including a shopping list, responsibilities, weekly challenges, and birthdays.
 
-
-                          GDC ÅRE
-
-- Weekly calendar with dates, current day and hollidays
-- Monthly calendar with happenings this month
-- Widgets - shopping list - Responsabilitys, Weekly challanges, Birthdays,
-
-                         Gallery
-
-- Img Slider
-- Img file uploader
-
+### Gallery
+- Image Slider for visual content display.
+- Image file uploader for adding new content to the gallery.
 
 ## Design
-Design created by ux-designer Johanna Sarskog ( https://jsarskog.myportfolio.com/ )
+The initial design of the dashboard was crafted by UX designer Johanna Sarskog. You can explore her portfolio [here](https://jsarskog.myportfolio.com/).
 
-## Tech
+## Technology Stack
 
 The dashboard uses a number of open source projects to work properly:
 
