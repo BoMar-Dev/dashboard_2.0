@@ -12,13 +12,14 @@ to start the server and backend, cd to server folder, and start with npm run sta
 Design created by ux-designer Johanna Sarskog ( https://jsarskog.myportfolio.com/ )
 
          ------------------------FEATURES---------------------------------
-                          GDC ÅRE
+                          
+                                 GDC ÅRE
 
 - Weekly calendar with dates, current day and hollidays
 - Monthly calendar with happenings this month
 - Widgets - shopping list - Responsabilitys, Weekly challanges, Birthdays,
 
-                         Gallery
+                               Gallery
 
 - Img Slider
 - Img file uploader
