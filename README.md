@@ -24,6 +24,6 @@ Design created by ux-designer Johanna Sarskog ( https://jsarskog.myportfolio.com
 - Img Slider
 - Img file uploader
 
-* Contributors
+           --------------- Contributors-------------------------
 [Marcus Nilsson ( BoMar-Dev]
 [UX Designer: Johanna Sarskog]
