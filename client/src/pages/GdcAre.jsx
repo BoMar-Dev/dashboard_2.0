@@ -73,10 +73,12 @@ export default function GdcAre() {
       </div>
 
       {/* Monthly happenings column  */}
-      <div className="  w-[382px] h-[640px] bg-neutral-50 rounded-[20px] overflow-y-scroll no-scrollbar  overflow-auto ">
-        <MonthlyEvents />
-        <div className=" absolute -left-[-1520px] -top-[-9px]  w-[50px] h-[50px] p-3 bg-blue-700 rounded-[38.13px]">
-          <img className="w-7 h-7 absolut" src={mountain} />
+      <div className="relative">
+        <div className="w-[382px] h-[640px] bg-neutral-50 rounded-[20px] overflow-y-scroll no-scrollbar overflow-auto">
+          <MonthlyEvents />
+        </div>
+        <div className="absolute -left-[-50px] -top-6 w-[50px] h-[50px] p-3 bg-blue-700 rounded-[38.13px]">
+          <img className="w-7 h-7 absolute" src={mountain} />
         </div>
       </div>
     </div>
