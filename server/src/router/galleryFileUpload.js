@@ -11,7 +11,7 @@ const router = express.Router();
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-// Define the destination folder for uploaded files
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     const folderPath = path.join(__dirname, "../../../client/public/img");
@@ -37,15 +37,26 @@ const db = mysql.createConnection({
 
 
 router.post("/galleri", upload.single("image"), (req, res) => {
-  // Assuming you're storing file paths in the database
   const imgUrl = req.file.filename; // Assuming you're serving static files from /public
-  const q = "INSERT INTO url_for_imgs (imgUrl) VALUES (?)";
+  const q = "INSERT INTO img_name (img) VALUES (?)";
   db.query(q, [imgUrl], (err, data) => {
     if (err) {
       console.error("Error uploading file to database:", err);
       return res.status(500).json({ error: "Failed to upload file" });
     }
     return res.json({ success: true });
+  });
+});
+
+router.get("/galleri/img", (req, res) => {
+  const q = "SELECT img FROM img_name"; // Query to retrieve image file names from the database
+  db.query(q, (err, results) => {
+    if (err) {
+      console.error("Error fetching image file names from database:", err);
+      return res.status(500).json({ error: "Internal server error" });
+    }
+    const imageFileNames = results.map((result) => result.img);
+    res.json(imageFileNames);
   });
 });
 
