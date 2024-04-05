@@ -5,24 +5,17 @@ import { IoIosPlay } from "react-icons/io";
 import { RiArrowRightSLine } from "react-icons/ri";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 
+import { fetchtImgs } from "../functions/API/imgUploadAPI";
+import { handleImgUpload } from "../functions/API/imgUploadAPI";
+
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imageNames, setImageNames] = useState([]);
   const [file, setFile] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/galleri/img")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setImageNames(data);
-      })
-      .catch((error) => console.error("Error fetching image names:", error));
-  }, []);
+    fetchtImgs(setImageNames);
+  }, [imageNames]);
 
   const prevImg = () => {
     const isFirstImg = currentIndex === 0;
@@ -42,26 +35,8 @@ const Slider = () => {
     }
   };
 
-  const handleUpload = async () => {
-    if (file) {
-      const formData = new FormData();
-      formData.append("image", file);
-
-      try {
-        const response = await fetch("http://localhost:3001/api/galleri", {
-          method: "POST",
-          body: formData,
-        });
-
-        // Handle response
-      } catch (error) {
-        console.error("Error uploading file:", error);
-      }
-    }
-  };
-
   const handleUploadAndReload = () => {
-    handleUpload();
+    handleImgUpload(file);
     setFile(null);
     window.location.reload();
   };

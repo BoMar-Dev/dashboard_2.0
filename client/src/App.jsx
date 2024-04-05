@@ -5,12 +5,12 @@ import Navbar from "./components/Navbar";
 import "./App.css";
 
 function App() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const location = useLocation();
 
-  useEffect(() => {
-    navigate("/gdc-are");
-  }, [navigate]);
+  // useEffect(() => {
+  //   navigate("/gdc-are");
+  // }, [navigate]);
 
   const changeBackgroundClass = () => {
     return location.pathname === "/galleri" ? "bg-photo" : "base-gradient-bg";
