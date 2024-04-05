@@ -23,9 +23,7 @@ export default function ResponsabilityBar() {
 
         const currentWeek = whatWeekIsIt();
 
-        const currentWeekData = responsabilitybarData.find(
-          (item) => item.week === currentWeek
-        );
+        const currentWeekData = responsabilitybarData.find((item) => item.week === currentWeek);
 
         if (currentWeekData) {
           setCurrentBreakfast(currentWeekData.breakfast);
@@ -62,9 +60,7 @@ export default function ResponsabilityBar() {
               <span className="mx-1  mt-1">{currentSupport}</span>
             </div>
 
-            <div
-              className={`${styles.regularTextStyle} breakfast mx-8 flex w-96`}
-            >
+            <div className={`${styles.regularTextStyle} breakfast mx-8 flex w-96`}>
               <img className="w-7 h-7 absolut mr-2" src={test} />
               <div className="flex w-96">
                 <span className="mt-1">Test:</span>

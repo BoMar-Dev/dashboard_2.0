@@ -24,7 +24,7 @@ export default function Navbar() {
         </NavLink>
 
         <NavLink className="color red-400">
-          <img className="w-[65px] h-[30px] mt-[535px] color-blue-100" src={login} alt="login" />
+          <img className="w-[65px] h-[30px] mt-[535px] 2xl:mt-[650px] color-blue-100" src={login} alt="login" />
           {/* <RiAdminFill style={{ color: "red", width: "100px" }} size={40} /> */}
         </NavLink>
       </ul>

@@ -42,21 +42,13 @@ export default function Responsabilitys() {
         const weekAfterNext = whatWeekIsIt() + 2;
         const threeWeeksAfter = whatWeekIsIt() + 3;
 
-        const currentWeekData = responsabilityData.find(
-          (item) => item.week === currentWeek
-        );
+        const currentWeekData = responsabilityData.find((item) => item.week === currentWeek);
 
-        const oneWeekAfterData = responsabilityData.find(
-          (item) => item.week === nextWeek
-        );
+        const oneWeekAfterData = responsabilityData.find((item) => item.week === nextWeek);
 
-        const twoWeekAfterData = responsabilityData.find(
-          (item) => item.week === weekAfterNext
-        );
+        const twoWeekAfterData = responsabilityData.find((item) => item.week === weekAfterNext);
 
-        const threeWeekAfterData = responsabilityData.find(
-          (item) => item.week === threeWeeksAfter
-        );
+        const threeWeekAfterData = responsabilityData.find((item) => item.week === threeWeeksAfter);
 
         if (currentWeekData) {
           setCurrentBreakfast(currentWeekData.breakfast);
@@ -100,9 +92,7 @@ export default function Responsabilitys() {
           {/* <img className="cursor- w-7 h-7 mt-1" src={pen} /> */}
         </div>
 
-        <table
-          className={`${styles.regularTextStyle}  w-full text-sm text-left rtl:text-right className="px-5" `}
-        >
+        <table className={`${styles.regularTextStyle}  w-full text-sm text-left rtl:text-right className="px-5" `}>
           <thead>
             <tr>
               <th className="px-1 py-1.5">Veckor</th>

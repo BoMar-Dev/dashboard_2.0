@@ -20,7 +20,7 @@ import Birthday from "../components/widget/birthday/Birthday";
 
 export default function GdcAre() {
   return (
-    <div className="wrapper flex flex-col gap-x-[60px] p-9">
+    <div className="wrapper flex flex-col gap-x-[60px]  p-9 2xl:p-40  2xl:ml-[90px]">
       <div className="calendar-monthlyhappenings flex flex-row space-x-[60px] ">
         <div className="w-[1257px] h-[640px] relative bg-neutral-50 rounded-[20px] ">
           {/* Purple calendar icon */}

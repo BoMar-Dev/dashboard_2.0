@@ -44,23 +44,13 @@ export const clickOnSpecificDate = (clickedDate) => {
 
 
 //Get week
-export const whatWeekIsIt = () =>{
-
+export const whatWeekIsIt = () => {
   const weeknumber = getWeek(new Date(), {
-   weekStartsOn: 1,
-    firstWeekContainsDate: 4
-  })
- 
-  return weeknumber
-}
-
-
-//  W  I  D  G  E  T 
-
-
-
-// //  W  I  D  G  E  T -  saving whats put inside the input field
-
+      weekStartsOn: 1,
+      firstWeekContainsDate: 4
+  });
+  return weeknumber;
+};
 
 
 
