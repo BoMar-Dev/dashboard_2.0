@@ -12,6 +12,7 @@ const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imageNames, setImageNames] = useState([]);
   const [file, setFile] = useState(null);
+  // let [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     fetchtImgs(setImageNames);
@@ -40,6 +41,13 @@ const Slider = () => {
     setFile(null);
     window.location.reload();
   };
+
+  // function play() {
+  //   isPlaying = true;
+  //   while (isPlaying) {
+  //     setInterval(nextImg, 5000);
+  //   }
+  // }
 
   return (
     <div className="w-screen h-screen relative " style={{ width: "calc(100vw - 120px)" }}>
@@ -75,6 +83,7 @@ const Slider = () => {
           <div className="mt-[8px] ">
             <IoIosPlay size="1.5rem" />
           </div>
+
           <div className="ml-10 mt-1">
             <RiArrowRightSLine onClick={nextImg} cursor="pointer" size="2rem" />
           </div>

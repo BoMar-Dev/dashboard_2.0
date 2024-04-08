@@ -2,9 +2,9 @@ import { styles } from "../styles";
 import frukost from "../assets/frukost.svg";
 import support from "../assets/support.svg";
 import test from "../assets/test.svg";
-
 import { useEffect, useState } from "react";
 
+//functions/helpers
 import { whatWeekIsIt } from "../functions/functions";
 
 const responsabilityEndpoint = "http://localhost:3001/api/responsability";
@@ -44,28 +44,23 @@ export default function ResponsabilityBar() {
     <div className="">
       {responsabilitybar.slice(0, 1).map((item, index) => {
         return (
-          <div
-            className="absolute flex bottom-0 right-[490px] w-[100px] h-[50px]    "
-            key={index} // Use index as the key
-          >
-            <div className={`${styles.regularTextStyle} breakfast mx-8 flex`}>
-              <img className="w-7 h-7 absolut mr-2 " src={frukost} />
-              <p className="mt-1">Frukost: </p>
-              <span className="mx-1 mt-1">{currentBreakfast}</span>
+          <div className="absolute bottom-0 right-8 flex gap-4 mb-5 mr-14" key={index}>
+            <div className={`${styles.regularTextStyle} flex items-center`}>
+              <img className="w-7 h-7 mr-2" src={frukost} alt="Frukost icon" />
+              <p>Frukost:</p>
+              <span className=" ml-1 mr-5">{currentBreakfast}</span>
             </div>
 
-            <div className={`${styles.regularTextStyle} breakfast mx-8 flex`}>
-              <img className="w-7 h-7 absolut mr-2" src={support} />
-              <p className="mt-1">Support:</p>
-              <span className="mx-1  mt-1">{currentSupport}</span>
+            <div className={`${styles.regularTextStyle} flex items-center`}>
+              <img className="w-7 h-7 mr-2" src={support} alt="Support icon" />
+              <p>Support: </p>
+              <div className=" ml-1 mr-5">{currentSupport}</div>
             </div>
 
-            <div className={`${styles.regularTextStyle} breakfast mx-8 flex w-96`}>
-              <img className="w-7 h-7 absolut mr-2" src={test} />
-              <div className="flex w-96">
-                <span className="mt-1">Test:</span>
-                <span className="mx-1 mt-1">{currentTest}</span>
-              </div>
+            <div className={`${styles.regularTextStyle} flex items-center`}>
+              <img className="w-7 h-7 mr-2" src={test} alt="Test icon" />
+              <p>Test: </p>
+              <span className="ml-1">{currentTest}</span>
             </div>
           </div>
         );

@@ -1,7 +1,7 @@
 export const happenings = [
     {
       id: 1,
-      date: "2 mar",
+      date: "2 apr",
       title: "Kontorslunch",
       fromTme: "12:00 - ",
       toTime: "13:00",
@@ -9,7 +9,7 @@ export const happenings = [
     },
     {
       id: 2,
-      date: "3 mar",
+      date: "3 apr",
       title: "Retrospektiv",
       fromTme: "10:30 - ",
       toTime: "11:30",
@@ -17,7 +17,7 @@ export const happenings = [
     },
     {
       id: 2,
-      date: "5 mar",
+      date: "5 apr",
       title: "Ida Fyller år",
       fromTme: "",
       toTime: "",
@@ -26,7 +26,7 @@ export const happenings = [
   
     {
       id: 2,
-      date: "6 mar",
+      date: "6 apr",
       title: "Veckomöte",
       fromTme: "09:30 - ",
       toTime: "10:00",
@@ -35,7 +35,7 @@ export const happenings = [
   
     {
       id: 2,
-      date: "8 mar",
+      date: "8 apr",
       title: "Jobba från vita renen",
       fromTme: "10:00 - ",
       toTime: "16:30",
@@ -44,7 +44,7 @@ export const happenings = [
   
     {
       id: 2,
-      date: "23 mar",
+      date: "23 apr",
       title: "AW",
       fromTme: "16.30 - ",
       toTime: "",
@@ -52,7 +52,7 @@ export const happenings = [
     },
     {
       id: 2,
-      date: "25 mar",
+      date: "25 apr",
       title: "Erik fyller år",
       fromTme: "",
       toTime: "",
@@ -60,7 +60,7 @@ export const happenings = [
     },
     {
       id: 2,
-      date: "27 mar",
+      date: "27 apr",
       title: "DEMO",
       fromTme: "10:00 - ",
       toTime: "11:00",

@@ -16,6 +16,8 @@ const styles = {
     //WidgetPadding
     contentFraming : "mt-2 p-6 px-12",
 
+    baseWidgetsPosition : "absolute w-[50px] h-[50px] p-[9.72px] -left-[-50px] -top-4",
+
 
     // Style for a regular day 
     dateText: "text-zinc-600 text-xl font-semibold font-['Source Sans Pro'] leading-relaxed tracking-wide",
@@ -30,7 +32,10 @@ const styles = {
     holidayDateText: "text-rose-500 text-xl font-semibold font-['Source Sans Pro'] leading-relaxed tracking-wide",
     holidayWeekdayText:"text-rose-500 text-sm font-normal font-['Source Sans Pro'] leading-[21px] tracking-wide",
 
+
+    // Working hourse
     workHoursStyle : "w-[10.56px] text-neutral-700 text-[9.16px] font-medium font-['Inter']",
+    meetingStyle : 'bg-babyBlue   text-black text-sm overflow-hidden rounded-[8px] text-center', // Adjust colors and sizes as needed
 
     // Regular style, most common
     regularTextStyle: " text-neutral-700 text-sm font-normal font-['Source Sans Pro'] leading-[21px] tracking-wide",
@@ -38,11 +43,13 @@ const styles = {
     regularHeaderText: "text-[22px] font-semibold font-['Source Sans Pro']",
 
     
-    meetingStyle : 'bg-babyBlue   text-black text-sm overflow-hidden rounded-[8px] text-center', // Adjust colors and sizes as needed
+
 
     activeButton : "outline-none ring-2 w-[85px] h-[85px] p-3 ring-customBlue focus:ring-opacity-50 rounded-[10px] bg-blue-100",
 
     inactiveButton: "w-[85px] h-[85px] rounded-[10px] p-3"
+
+  
 
    
   };

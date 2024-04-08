@@ -1,11 +1,9 @@
 import { styles } from "../../../styles";
-import pen from "../../../assets/pen.svg";
 import { useEffect, useState } from "react";
 
 // Functions/ Helpers
 import { whatWeekIsIt } from "../../../functions/functions";
 
-//Endpoint
 const responsabilityEndpoint = "http://localhost:3001/api/responsability";
 
 export default function Responsabilitys() {

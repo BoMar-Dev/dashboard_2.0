@@ -2,7 +2,6 @@ import { styles } from "../../../styles";
 import { useState, useEffect } from "react";
 
 //Icons
-import pen from "../../../assets/pen.svg";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { CiCircleMinus } from "react-icons/ci";
 
@@ -13,11 +12,7 @@ import { reset, plus, minus } from "../../../functions/functions";
 import { workouts } from "../../../functions/workoutsData";
 
 // API functions
-import {
-  handleReset,
-  handleUpdate,
-  fetchWorkoutsData,
-} from "../../../functions/API/weeklyChallengeAPI";
+import { handleReset, handleUpdate, fetchWorkoutsData } from "../../../functions/API/weeklyChallengeAPI";
 
 export default function ChallangeCounter() {
   const [count, setCount] = useState({
@@ -36,9 +31,7 @@ export default function ChallangeCounter() {
     <div>
       <div className="w-[382px] h-[270px] bg-neutral-50 rounded-[20px] mt-2 p-6 px-12">
         <div className="flex justify-between ">
-          <h1 className={`${styles.regularHeaderText} mt-2`}>
-            Veckans utmaning
-          </h1>
+          <h1 className={`${styles.regularHeaderText} mt-2`}>Veckans utmaning</h1>
           {/* Not editabe for the moment  */}
           {/* <img className="cursor- w-7 h-7 mt-1" src={pen} /> */}
         </div>
@@ -54,11 +47,7 @@ export default function ChallangeCounter() {
                     className="text-xl"
                     onClick={() => {
                       minus(workout.workout, count, setCount);
-                      handleUpdate(
-                        workout.id,
-                        count[workout.workout] - 1,
-                        setCount
-                      );
+                      handleUpdate(workout.id, count[workout.workout] - 1, setCount);
                     }}
                   >
                     <CiCircleMinus />
@@ -69,11 +58,7 @@ export default function ChallangeCounter() {
                     className="text-xl"
                     onClick={() => {
                       plus(workout.workout, count, setCount);
-                      handleUpdate(
-                        workout.id,
-                        count[workout.workout] + 1,
-                        setCount
-                      );
+                      handleUpdate(workout.id, count[workout.workout] + 1, setCount);
                     }}
                   >
                     <IoIosAddCircleOutline />

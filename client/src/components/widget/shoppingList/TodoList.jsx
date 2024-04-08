@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { styles } from "../../../styles";
 
-// Delete Endpoint Variable
 const deleteTodoEndpoint = "http://localhost:3001/api/todo/";
 
 // React Icons
@@ -12,12 +11,10 @@ import { GoDotFill } from "react-icons/go";
 import { fetchtodo } from "../../../functions/API/todoAPI";
 
 export const TodoList = (todos, setTodos, newTodoList) => {
-  // G E T all todos
   useEffect(() => {
     fetchtodo(setTodos);
   }, [setTodos]);
 
-  // D E L E T E
   const handleDelete = async (todoId) => {
     try {
       // Send DELETE request to the server

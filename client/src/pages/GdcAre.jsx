@@ -1,3 +1,4 @@
+import { styles } from "../styles";
 // Icons
 import calendar from "../assets/calendar.svg";
 import basket from "../assets/basket.svg";
@@ -58,28 +59,28 @@ export default function GdcAre() {
       <div className=" mt-16 flex widget-wrapper gap-[57px] relative">
         <div>
           <TodoWidget />
-          <div className=" absolute w-[50px] h-[50px] p-[9.72px] bg-red-400 rounded-[36.46px] -left-[-50px] -top-4 ">
+          <div className={`${styles.baseWidgetsPosition} bg-red-400 rounded-[36.46px]`}>
             <img className="w-7 h-7 relative" src={basket} />
           </div>
         </div>
 
         <div className="relative">
           <Responsabilitys />
-          <div className=" absolute w-[50px] h-[50px] p-[9.72px] bg-orange-400 rounded-[36.46px] -left-[-50px] -top-4 ">
+          <div className={`${styles.baseWidgetsPosition}  bg-orange-400 rounded-[36.46px]`}>
             <img className="w-7 h-7 relative" src={crown} />
           </div>
         </div>
 
         <div className="relative">
           <ChallangeCounter />
-          <div className=" absolute w-[50px] h-[50px] p-[9.72px] bg-customPink rounded-[36.46px] -left-[-50px] -top-4 ">
+          <div className={`${styles.baseWidgetsPosition} bg-customPink rounded-[36.46px]`}>
             <img className="w-7 h-7 relative" src={mucle} />
           </div>
         </div>
 
         <div className="relative">
           <Birthday />
-          <div className=" absolute w-[50px] h-[50px] p-[9.72px] bg-yellow-300 rounded-[36.46px] -left-[-50px] -top-4 ">
+          <div className={`${styles.baseWidgetsPosition} bg-yellow-300 rounded-[36.46px]`}>
             <img className="w-7 h-7 relative" src={smile} />
           </div>
         </div>
